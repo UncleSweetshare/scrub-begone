@@ -31,18 +31,3 @@ sdk.hook(
     pre_MakeDispPlayerList,
     post_MakeDispPlayerList
 )
-
--- Skips the hooked function entirely
-local function pre_SetVisible_AllPlayer(args)
-    return sdk.PreHookResult.SKIP_ORIGINAL
-end
-
--- Returns void
-local function post_SetVisible_AllPlayer(retval)
-end
-
-sdk.hook(
-    sdk.find_type_definition("app.worldtour.avatar.AvatarManager"):get_method("SetVisible_AllPlayer"),
-    pre_SetVisible_AllPlayer,
-    post_SetVisible_AllPlayer
-)
